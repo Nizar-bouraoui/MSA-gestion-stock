@@ -1,0 +1,17 @@
+server:
+  port: 8089
+
+eureka:
+  instance:
+   hostname: localhost
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: second-microservice
+          uri: http://localhost:8087/
+          predicates:
+            - Path=/api/**
