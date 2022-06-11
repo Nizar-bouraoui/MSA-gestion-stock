@@ -15,12 +15,12 @@ spring:
           uri: http://localhost:8087/
           predicates:
             - Path=/product/**  
-            - Method=GET,POST 
+            - Method=GET,POST,PUT
         - id: third-microservice
           uri: http://localhost:9898/
           predicates:
             - Path=/user/**
-            - Method=GET,POST
+            - Method=GET,POST,PUT
       globalcors:
         corsConfigurations:
           '[/**]':
