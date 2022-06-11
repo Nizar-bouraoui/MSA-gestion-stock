@@ -1,0 +1,119 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-slides pager="true" [options]="slideOpts" #mySlide>
+    <ion-slide>
+      <div>
+        <img src="../../assets/slide-1.png" style="transform: scale(1.5);" />
+        <h2>Welcome</h2>
+        <p>
+          The <b>tunisia transport app</b> is a practical preview of the ionic framework in action, and a
+          demonstration of proper code use.
+        </p>
+        <ion-row>
+          <ion-col size="12">
+            <ion-button expand="block" color="primary" (click)="swipeNext()">Start</ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="4" offset="4">
+              <ion-img src="../../assets/logo.png"></ion-img>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <h2>Registration</h2>
+        <small>
+          Enter your phone number to continue,we will send you OTP to verify.
+        </small>
+        <div class="ion-margin" style=" box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);">
+          <ion-row>
+            <ion-col size="5">
+              <ion-item>
+                <img src="../../assets/tunisia.png" />
+                <ion-input class="hide" type="number" readonly placeholder=" +216"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="7">
+              <ion-item class="padding-left-2px">
+                <ion-input type="tel" placeholder="phone number" maxlength="8" minlength="8"
+                  [ngModel]="phoneNumberLength" (ngModelChange)="phoneNumberLengthValidation($event)"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12">
+              <ion-button expand="block" color="primary" [disabled]="phoneNumberVerified" (click)="saveUser()">Send
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div class="ion-margin">
+          <small>
+            by connecting to <b>Tunisia Transport</b> you accept the terms of use.
+          </small>
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="4" offset="4">
+              <ion-img src="../../assets/logo.png"></ion-img>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <h2>Verification</h2>
+        <small>
+          Enter the 6 digit number that sent to you.
+        </small>
+        <div class="ion-margin" style=" box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);">
+          <ion-row>
+            <ion-col size="2">
+              <ion-item lines="none" class="ion-item-verification">
+                <input type="number" maxlength="1" #a (keyup)="autoMoveNextInput(b)" class="input-verification">
+              </ion-item>
+            </ion-col>
+            <ion-col size="2">
+              <ion-item lines="none" class="ion-item-verification">
+                <input type="number" maxlength="1" #b (keyup)="autoMoveNextInput(c)" class="input-verification">
+              </ion-item>
+            </ion-col>
+            <ion-col size="2">
+              <ion-item lines="none" class="ion-item-verification">
+                <input type="number" maxlength="1" #c (keyup)="autoMoveNextInput(d)" class="input-verification">
+              </ion-item>
+            </ion-col>
+            <ion-col size="2">
+              <ion-item lines="none" class="ion-item-verification">
+                <input type="number" maxlength="1" #d (keyup)="autoMoveNextInput(e)" class="input-verification">
+              </ion-item>
+            </ion-col>
+            <ion-col size="2">
+              <ion-item lines="none" class="ion-item-verification">
+                <input type="number" maxlength="1" #e (keyup)="autoMoveNextInput(f)" class="input-verification">
+              </ion-item>
+            </ion-col>
+            <ion-col size="2">
+              <ion-item lines="none" class="ion-item-verification">
+                <input type="number" maxlength="1" #f (keyup)="verificationCodeLengthValidation(a,b,c,d,e,f)"
+                  class="input-verification">
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12">
+              <ion-button expand="block" color="primary" [disabled]="verificationCodeVerified" (click)="verifyUser()">
+                Verify</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+        <small>nothing received ? <b style="color: #85CDFF;">resend the code</b></small>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

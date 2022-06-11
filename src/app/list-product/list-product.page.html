@@ -1,0 +1,37 @@
+<ion-header></ion-header>
+<ion-content class="ion-padding">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-searchbar showCancelButton="never" color="primary" placeholder="Search or Share Position" #sharedPositionName [ngModel]="seachInput" (ngModelChange)="filterSharedPosition($event)" ></ion-searchbar>
+  <small class="ion-padding" style="color: red;top: 0;" *ngIf="sharedPositionNameChecker"><ion-icon name="alert-circle-outline" style="margin: auto;" ></ion-icon>  please make sure to add shared position name under search bar if you want to share your position</small>
+
+  
+  
+
+  <div style="height: 100%;width: 100%;align-items: center;margin: auto;text-align: center;padding: auto !important;">
+    <ion-list class="ion-padding" style="background-color: transparent;">
+      <ion-card *ngFor="let SP of filterSharedPositions">
+        <ion-item style="--border-color: #85CDFF">
+          <ion-icon name="pin" slot="start"></ion-icon>
+          <ion-label>{{SP.name}}</ion-label>
+          <ion-button fill="outline" slot="end" (click)="navigateToMap(SP.sharedPositionCode)">View</ion-button>
+        </ion-item>
+        <ion-card-content>
+          <ion-label>description :  {{SP.description}}</ion-label>
+          <br>
+          <ion-label>price : {{SP.price}} DT</ion-label>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+  </div>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="navigateToSharePosition(sharedPositionName)">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+
+
+

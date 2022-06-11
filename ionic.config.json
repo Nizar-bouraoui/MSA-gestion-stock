@@ -1,0 +1,7 @@
+{
+  "name": "MSA-gestion-stock-front",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
