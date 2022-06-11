@@ -1,14 +1,13 @@
-package com.nbouraoui.entities;
+package com.samisayari.entities;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Data;
+import lombok.experimental.SuperBuilder;
+import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 import java.util.Map;
 
-import org.springframework.http.HttpStatus;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
-
-import lombok.Data;
-import lombok.experimental.SuperBuilder;
 @Data
 @SuperBuilder
 @JsonInclude
