@@ -14,4 +14,16 @@ spring:
         - id: second-microservice
           uri: http://localhost:8087/
           predicates:
-            - Path=/api/**
+            - Path=/product/**  
+            - Method=GET,POST 
+        - id: third-microservice
+          uri: http://localhost:9898/
+          predicates:
+            - Path=/user/**
+            - Method=GET,POST
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "authorization"
